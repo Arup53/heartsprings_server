@@ -199,7 +199,6 @@ async function run() {
     });
 
     // Biodata
-
     app.get("/biodatacount", async (req, res) => {
       const count = await biodataCollection.countDocuments();
       res.send({ count: count });
@@ -212,12 +211,10 @@ async function run() {
 
       let query = {};
 
-      // Filter by BiodataType (e.g., "Male" or "Female")
       if (filters.BiodataType) {
         query.type = filters.BiodataType;
       }
 
-      // Filter by PermanentDivision (e.g., "Dhaka", "Chattagra", etc.)
       if (filters.division) {
         query.permanent_division = filters.division;
       }
